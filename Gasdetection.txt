@@ -1,0 +1,23 @@
+// C++ code
+//
+int GasSensorVal = 0;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  GasSensorVal = analogRead(A0);
+  Serial.println(GasSensorVal);
+  if (GasSensorVal >= 85) {
+    digitalWrite(13, HIGH);
+    delay(2000); // Wait for 2000 millisecond(s)
+    digitalWrite(13, LOW);
+  } else {
+    digitalWrite(13, LOW);
+  }
+}
